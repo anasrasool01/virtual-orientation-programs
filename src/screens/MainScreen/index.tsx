@@ -10,9 +10,8 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BottomView from '../../components/MainScreen/BottomView';
 import TopView from '../../components/MainScreen/TopView';
-<<<<<<< userManual
 import Images from '../../assets/images';
-=======
+
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 const MyCarousel = ({ data }) => {
@@ -59,7 +58,7 @@ const MyCarousel = ({ data }) => {
     </View>
   );
 };
->>>>>>> main
+
 
 const windowHeight = Dimensions.get('window').height;
 
@@ -76,6 +75,7 @@ interface Props {
 }
 
 const MainScreen: React.FC<Props> = () => {
+
   const [backgroundImage, setBackgroundImage] = useState<ImageSourcePropType>(
     Images.backgroundImage
   );
@@ -94,6 +94,7 @@ const MainScreen: React.FC<Props> = () => {
 
     fetchBackgroundImage();
   }, []);
+
   const carouselData = [
     {
       title: <BottomView Images={{
