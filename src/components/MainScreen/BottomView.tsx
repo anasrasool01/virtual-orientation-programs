@@ -31,17 +31,17 @@ const windowHeight = Dimensions.get('window').height;
 
 const BottomView: React.FC<Props> = () => {
   const imageSourcesRow1: ImageData[] = [
-    {source: Images.icons.send, name: 'Send'},
-    {source: Images.icons.camera, name: 'Camera'},
-    {source: Images.icons.chat, name: 'Chat'},
-    {source: Images.icons.heart, name: 'Heart'},
+    { source: Images.icons.send, name: 'Send' },
+    { source: Images.icons.camera, name: 'Camera' },
+    { source: Images.icons.chat, name: 'Chat' },
+    { source: Images.icons.heart, name: 'Heart' },
   ];
 
   const imageSourcesRow2: ImageData[] = [
-    {source: Images.icons.send, name: 'Send'},
-    {source: Images.icons.camera, name: 'Camera'},
-    {source: Images.icons.chat, name: 'Chat'},
-    {source: Images.icons.heart, name: 'Heart'},
+    { source: Images.icons.send, name: 'Send' },
+    { source: Images.icons.camera, name: 'Camera' },
+    { source: Images.icons.chat, name: 'Chat' },
+    { source: Images.icons.heart, name: 'Heart' },
   ];
 
   const handleImageClick = (name: string) => {
