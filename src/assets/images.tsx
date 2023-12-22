@@ -20,6 +20,7 @@ export const Images = {
     chat: require('./images/chat.png'),
     heart: require('./images/message.png'),
     iconBackground: require('./images/iconBackground.jpeg'),
+    menu: require('./images/menu.png'),
   },
 };
 
