@@ -1,19 +1,16 @@
-import React from 'react';
 import {
+  Alert,
+  Dimensions,
   Image,
+  ImageBackground,
+  ImageSourcePropType,
+  Linking,
+  StyleSheet,
   TouchableOpacity,
   View,
-  ImageBackground,
-  StyleSheet,
-  Dimensions,
-  ImageSourcePropType,
-  Alert,
 } from 'react-native';
-import {Linking} from 'react-native';
+import React from 'react';
 import Images from '../../assets/images';
-
-const windowHeight = Dimensions.get('window').height;
-
 interface Props {
   Images: {
     backgroundImage: ImageSourcePropType;
@@ -30,7 +27,9 @@ interface ImageData {
   name: string;
 }
 
-const Example: React.FC<Props> = () => {
+const windowHeight = Dimensions.get('window').height;
+
+const BottomView: React.FC<Props> = () => {
   const imageSourcesRow1: ImageData[] = [
     {source: Images.icons.send, name: 'Send'},
     {source: Images.icons.camera, name: 'Camera'},
@@ -76,6 +75,7 @@ const Example: React.FC<Props> = () => {
       );
     }
   };
+
   const renderImagesRow = (images: ImageData[]) => {
     return images.map((data, index) => (
       <TouchableOpacity
@@ -89,36 +89,21 @@ const Example: React.FC<Props> = () => {
       </TouchableOpacity>
     ));
   };
-
   return (
-    <ImageBackground
-      source={Images.backgroundImage}
-      style={styles.backgroundImage}
-      resizeMode="cover">
-      <View style={styles.container}>
-        <View style={styles.top} />
-        <View style={styles.bottom}>
-          <View style={styles.row}>{renderImagesRow(imageSourcesRow1)}</View>
-          <View style={styles.row}>{renderImagesRow(imageSourcesRow2)}</View>
-        </View>
-      </View>
-    </ImageBackground>
+    <View style={[styles.bottom, styles.container]}>
+      <View style={styles.row}>{renderImagesRow(imageSourcesRow1)}</View>
+      <View style={styles.row}>{renderImagesRow(imageSourcesRow2)}</View>
+    </View>
   );
 };
 
+export default BottomView;
+
 const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
-  },
   container: {
     flex: 1,
   },
-  top: {
-    flex: 1,
-    backgroundColor: 'transparent',
-  },
+
   bottom: {
     height: windowHeight / 2,
     alignItems: 'center',
@@ -130,8 +115,8 @@ const styles = StyleSheet.create({
   },
   iconBackground: {
     flex: 1,
-    width: 90,
-    height: 90,
+    width: 80,
+    height: 80,
     resizeMode: 'cover',
   },
   image: {
@@ -143,5 +128,3 @@ const styles = StyleSheet.create({
     margin: 5,
   },
 });
-
-export default Example;

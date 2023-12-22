@@ -1,5 +1,5 @@
 import React from 'react';
-import {Example} from '../screens';
+import {MainScreen, Profile} from '../screens';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
@@ -7,7 +7,8 @@ const Stack = createNativeStackNavigator();
 const MainNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Home" component={Example} />
+      <Stack.Screen name="Home" component={MainScreen} />
+      <Stack.Screen name="Profile" component={Profile} />
     </Stack.Navigator>
   );
 };
