@@ -5,11 +5,61 @@ import {
   StyleSheet,
   Dimensions,
   ImageSourcePropType,
+  Text,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BottomView from '../../components/MainScreen/BottomView';
 import TopView from '../../components/MainScreen/TopView';
+<<<<<<< userManual
 import Images from '../../assets/images';
+=======
+import Carousel, { Pagination } from 'react-native-snap-carousel';
+
+const MyCarousel = ({ data }) => {
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
+  const renderItem = ({ item }) => (
+    <View>
+      <Text style={{ paddingRight: 10 }}>{item.title}</Text>
+    </View>
+  );
+
+  return (
+    <View>
+      <Carousel
+        data={data}
+        renderItem={renderItem}
+        sliderWidth={windowHeight}
+        itemWidth={360}
+        layout={'default'}
+        loop={false}
+        autoplay={false}
+        autoplayInterval={false}
+        onSnapToItem={(index: React.SetStateAction<number>) => setActiveIndex(index)}
+      />
+      <Pagination
+        dotsLength={data.length}
+        activeDotIndex={activeIndex}
+        containerStyle={{ marginTop: -55 }}
+        dotStyle={{
+          width: 10,
+          height: 10,
+          borderRadius: 5,
+          backgroundColor: 'blue',
+        }}
+        inactiveDotStyle={{
+          width: 10,
+          height: 10,
+          borderRadius: 5,
+          backgroundColor: 'lightgray',
+        }}
+        inactiveDotOpacity={0.6}
+        inactiveDotScale={0.8}
+      />
+    </View>
+  );
+};
+>>>>>>> main
 
 const windowHeight = Dimensions.get('window').height;
 
@@ -44,7 +94,32 @@ const MainScreen: React.FC<Props> = () => {
 
     fetchBackgroundImage();
   }, []);
-
+  const carouselData = [
+    {
+      title: <BottomView Images={{
+        backgroundImage: 0,
+        icons: {
+          send: 0,
+          camera: 0,
+          chat: 0,
+          heart: 0
+        }
+      }} />
+    },
+    {
+      title: <BottomView Images={{
+        backgroundImage: 0,
+        icons: {
+          send: 0,
+          camera: 0,
+          chat: 0,
+          heart: 0
+        }
+      }} />
+    },
+    // { title: 'Item 2' },
+    // { title: 'Item 3' },
+  ];
   return (
     <ImageBackground
       source={backgroundImage}
@@ -54,8 +129,11 @@ const MainScreen: React.FC<Props> = () => {
         <View style={styles.top}>
           <TopView />
         </View>
-        <View style={styles.bottom} />
-        <BottomView />
+        <View style={styles.bottom}>
+          <MyCarousel data={carouselData} />
+        </View>
+        {/* <View style={styles.bottom} /> */}
+        {/* <BottomView /> */}
       </View>
     </ImageBackground>
   );
@@ -72,12 +150,11 @@ const styles = StyleSheet.create({
   },
   top: {
     flex: 1,
-    backgroundColor: 'transparent',
   },
   bottom: {
     height: windowHeight / 2,
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: "flex-start",
     marginBottom: 10,
   },
 });
