@@ -6,10 +6,10 @@ import {
   Image,
   Alert,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Images from '../../assets/images';
 import CustomDropdown from '../commonComponents/CustomDropdown';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const TopView = () => {
@@ -56,7 +56,6 @@ const TopView = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Hello</Text>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.imageButton} onPress={handleImageClick}>
           <Image source={Images.icons.menu} style={styles.image} />

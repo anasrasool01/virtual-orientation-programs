@@ -7,7 +7,7 @@ export const Images = {
     send: require('./images/QCHP.png'),
     camera: require('./images/cpd.png'),
     chat: require('./images/vedios.png'),
-    heart: require('./images/newStudents.jpg'),
+    heart: require('./images/feedback.png'),
     iconBackground: require('./images/iconBackground.jpeg'),
     menu: require('./images/menu.png'),
   },

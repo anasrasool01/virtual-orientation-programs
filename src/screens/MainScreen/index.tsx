@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   ImageBackground,
@@ -13,6 +13,7 @@ import TopView from '../../components/MainScreen/TopView';
 import Images from '../../assets/images';
 
 import Carousel, { Pagination } from 'react-native-snap-carousel';
+import ViewTwo from '../../components/MainScreen/ViewTwo';
 
 const MyCarousel = ({ data }) => {
   const [activeIndex, setActiveIndex] = React.useState(0);
@@ -41,14 +42,15 @@ const MyCarousel = ({ data }) => {
         activeDotIndex={activeIndex}
         containerStyle={{ marginTop: -55 }}
         dotStyle={{
-          width: 10,
-          height: 10,
+          width: 5,
+          height: 5,
           borderRadius: 5,
-          backgroundColor: 'blue',
+          marginTop: 35,
+          // backgroundColor: 'blue',
         }}
         inactiveDotStyle={{
-          width: 10,
-          height: 10,
+          // width: 10,
+          // height: 10,
           borderRadius: 5,
           backgroundColor: 'lightgray',
         }}
@@ -85,7 +87,7 @@ const MainScreen: React.FC<Props> = () => {
       try {
         const storedBackgroundImage = await AsyncStorage.getItem('userImage');
         if (storedBackgroundImage) {
-          setBackgroundImage({uri: storedBackgroundImage});
+          setBackgroundImage({ uri: storedBackgroundImage });
         }
       } catch (error) {
         console.error('Error fetching backgroundImage:', error);
@@ -108,7 +110,7 @@ const MainScreen: React.FC<Props> = () => {
       }} />
     },
     {
-      title: <BottomView Images={{
+      title: <ViewTwo Images={{
         backgroundImage: 0,
         icons: {
           send: 0,
@@ -156,7 +158,7 @@ const styles = StyleSheet.create({
     height: windowHeight / 2,
     alignItems: 'center',
     justifyContent: "flex-start",
-    marginBottom: 10,
+    // marginBottom: 10,
   },
 });
 
