@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {View, TextInput, Button, Alert, StyleSheet} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import React, { useState } from 'react';
+import { View, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginScreen = () => {
@@ -9,7 +9,7 @@ const LoginScreen = () => {
   const navigation = useNavigation();
 
   const handleLogin = async () => {
-    if (email === 'admin@gmail.com' && password === 'admin') {
+    if (email === 'anesthesiatechnicalstaff@gmail.com' && password === 'Hamad974') {
       await AsyncStorage.setItem('login', 'true');
       Alert.alert('Success', 'Login Successful', [
         {
